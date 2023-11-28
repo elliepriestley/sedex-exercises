@@ -8,12 +8,12 @@ package easy_exercises
 class HighestAndLowest {
 
     fun highAndLow(string: String): String {
-        val list: List<String> = string.split(" ")
-        if (list.count() == 1) {
+        val stringList: List<String> = string.split(" ")
+        if (stringList.count() == 1) {
             return string
         } else {
-            val result = list.map { it.toInt()}
-            return "${result.max()} ${result.min()}"
+            val intList = stringList.map { it.toInt()}
+            return "${intList.max()} ${intList.min()}"
         }
     }
 }
