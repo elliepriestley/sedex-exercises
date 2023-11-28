@@ -4,11 +4,9 @@ class VowelCount {
 
     fun count(word: String): Int {
 
-       // return word.filter {it -> it in vowels}.count()
-
-        // syntactic sugar
-
-        // idiomatic kotlin
+        // return word.filter {it -> it in vowels}.count()
+        // 'syntactic sugar'
+        // 'idiomatic kotlin'
         return word.count {it in "aeiou"}
     }
 }
