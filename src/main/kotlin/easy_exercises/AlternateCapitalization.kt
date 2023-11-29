@@ -8,25 +8,32 @@ The input will be a lowercase string with no spaces. */
 
 class AlternateCapitalization {
 
-    fun capitalize(inputString: String): List<String> {
+    fun alternateCapitalize(inputString: String): List<String> {
         val inputList= listOf(inputString, inputString)
-        var firstCapitalizedString = ""
-        inputList[0].forEachIndexed { index, c ->
-            if (index % 2 == 0) {
-                firstCapitalizedString += c.uppercase()
-            } else {
-                firstCapitalizedString += c
-            }
-        }
-        var secondCapitalizedString = ""
-        inputList[1].forEachIndexed { index, c ->
-            if (index % 2 != 0) {
-                secondCapitalizedString += c.uppercase()
-            } else {
-                secondCapitalizedString += c
-            }
-        }
+        val evenIndicesCapitalized = capitalize(0, inputList[0])
+        val oddIndicesCapitalized = capitalize(1, inputList[1])
+        return listOf(evenIndicesCapitalized, oddIndicesCapitalized)
+    }
 
-        return listOf(firstCapitalizedString, secondCapitalizedString)
+    fun capitalize(startingIndex: Int, inputString: String): String {
+        var capitalizedString = ""
+        if (startingIndex == 0) {
+            inputString.forEachIndexed { index, c ->
+                if (index % 2 == 0) {
+                    capitalizedString += c.uppercase()
+                } else {
+                    capitalizedString += c
+                }
+            }
+        } else {
+            inputString.forEachIndexed { index, c ->
+                if (index % 2 != 0) {
+                    capitalizedString += c.uppercase()
+                } else {
+                    capitalizedString += c
+                }
+            }
+        }
+        return capitalizedString
     }
 }
