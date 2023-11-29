@@ -8,10 +8,10 @@ import kotlin.test.expect
 class HighestAndLowestTest {
 
     @Test
-    fun `when argument is a string of one character, that character is returned`() {
+    fun `when argument is a string of one character, that character is returned twice`() {
         // Arrange
         val highestAndLowest = HighestAndLowest()
-        val expected: String = "2"
+        val expected: String = "2 2"
 
         // Act
         val actual: String = highestAndLowest.highAndLow("2")
@@ -46,6 +46,19 @@ class HighestAndLowestTest {
         // Assert
         assertEquals(expected, actual)
         assertEquals("42 -9", highestAndLowest.highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"))
+    }
+
+    @Test
+    fun `when argument is a string of the two same numbers, both are returned`() {
+        // Arrange
+        val highestAndLowest = HighestAndLowest()
+        val expected: String = "10 10"
+
+        // Act
+        val actual: String = highestAndLowest.highAndLow("10 10")
+
+        // Assert
+        assertEquals(expected, actual)
     }
 }
 

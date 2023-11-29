@@ -10,7 +10,7 @@ class HighestAndLowest {
     fun highAndLow(string: String): String {
         val stringList: List<String> = string.split(" ")
         if (stringList.count() == 1) {
-            return string
+            return "$string $string"
         }
         val intList = stringList.map { it.toInt()}
         return "${intList.max()} ${intList.min()}"
