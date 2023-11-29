@@ -2,6 +2,8 @@ package easy_exercises
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import java.lang.Exception
+import kotlin.test.assertFailsWith
 
 class LoopGrowthOfAPopulationTest {
 
@@ -53,7 +55,7 @@ class LoopGrowthOfAPopulationTest {
         //. second year 1040.4
         // third year = 1061.2
         // Fourth year = 1082.42
-        assertEquals(4, loopGrowthOfAPopulation.predictYear(1000,2f, 0,1080))
+        assertEquals(4, loopGrowthOfAPopulation.predictYear(1000, 2f, 0, 1080))
     }
 
     @Test
