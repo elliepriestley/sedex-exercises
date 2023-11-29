@@ -11,9 +11,8 @@ class HighestAndLowest {
         val stringList: List<String> = string.split(" ")
         if (stringList.count() == 1) {
             return string
-        } else {
-            val intList = stringList.map { it.toInt()}
-            return "${intList.max()} ${intList.min()}"
         }
+        val intList = stringList.map { it.toInt()}
+        return "${intList.max()} ${intList.min()}"
     }
 }

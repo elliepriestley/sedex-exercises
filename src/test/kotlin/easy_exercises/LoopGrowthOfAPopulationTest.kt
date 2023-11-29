@@ -75,20 +75,20 @@ class LoopGrowthOfAPopulationTest {
 
     }
 
-//    @Test
-//    fun `an initialPopulation of 1 with percentage increase of 77 and 0 additionalPeople and targetPopulation of 2 returns 2`() {
-//        // 1 year = 1.77
-//        // 2 years = 3.13
-//
-//        //arrange
-//        val loopGrowthOfAPopulation = LoopGrowthOfAPopulation()
-//        val expected: Int = 2
-//
-//        //act
-//        val actual: Int = loopGrowthOfAPopulation.predictYear(1, 77f, 0, 2)
-//
-//        //assert
-//        assertEquals(expected, actual)
-//
-//    }
+    @Test
+    fun `an initialPopulation of 1 with percentage increase of 77 and 0 additionalPeople and targetPopulation of 2 returns 2`() {
+        // 1 year = 1.77
+        // 2 years = 3.13
+
+        //arrange
+        val loopGrowthOfAPopulation = LoopGrowthOfAPopulation()
+        val expected: Int = 2
+
+        //act
+        val actual: Int = loopGrowthOfAPopulation.predictYear(1, 77f, 0, 2)
+
+        //assert
+        assertEquals(expected, actual)
+
+    }
 }
