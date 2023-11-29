@@ -1,23 +1,23 @@
 package easy_exercises
 
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 class AlternateCapitalizationTest {
 
     @Test
-    fun `returns a List of Strings, with each element comprised of the same characters as input string (not case sensitive) `() {
+    fun `returns a ListOfStrings, with first element alternatively capitalized starting with index 0, and second element alternatively capitalized starting with index 1`() {
         // Arrange
-        val altCapitalization = AlternateCapitalization()
-        val expected: List<String> = listOf("abcd", "abcd")
+        val alternateCapitalization = AlternateCapitalization()
+        val expected : List<String> = listOf("HeLlO", "hElLo")
 
         // Act
-        val actual: List<String> = altCapitalization.capitalize("abcd")
+        val actual: List<String> = alternateCapitalization.capitalize("hello")
 
         // Assert
         assertEquals(expected, actual)
-        assertEquals(listOf("fghijk", "fghijk"), altCapitalization.capitalize("fghijk"))
-        assertEquals(listOf("iejfk", "iejfk"), altCapitalization.capitalize("iejfk"))
-        assertEquals(listOf("helloWorld", "helloWorld"), altCapitalization.capitalize("helloWorld"))
+
     }
+
 }

@@ -77,8 +77,10 @@ class LoopGrowthOfAPopulationTest {
 
     @Test
     fun `an initialPopulation of 1 with percentage increase of 77 and 0 additionalPeople and targetPopulation of 2 returns 2`() {
-        // 1 year = 1.77
+        // 1 year = 1.77->1
         // 2 years = 3.13
+
+        // make initial pop 2 - larger numbers
 
         //arrange
         val loopGrowthOfAPopulation = LoopGrowthOfAPopulation()
