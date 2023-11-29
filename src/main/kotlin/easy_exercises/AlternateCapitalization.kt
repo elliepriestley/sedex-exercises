@@ -10,28 +10,28 @@ class AlternateCapitalization {
 
     fun alternateCapitalize(inputString: String): List<String> {
         val inputList= listOf(inputString, inputString)
-        val evenIndicesCapitalized = capitalize(0, inputList[0])
-        val oddIndicesCapitalized = capitalize(1, inputList[1])
-        return listOf(evenIndicesCapitalized, oddIndicesCapitalized)
+        return listOf(capitalizeByEvenIndex(inputList[0]), capitalizeByOddIndex(inputList[1]))
     }
 
-    fun capitalize(startingIndex: Int, inputString: String): String {
+    fun capitalizeByEvenIndex(inputString: String): String {
         var capitalizedString = ""
-        if (startingIndex == 0) {
-            inputString.forEachIndexed { index, c ->
-                if (index % 2 == 0) {
-                    capitalizedString += c.uppercase()
-                } else {
-                    capitalizedString += c
-                }
+        inputString.forEachIndexed { index, c ->
+            if (index % 2 == 0) {
+                capitalizedString += c.uppercase()
+            } else {
+                capitalizedString += c
             }
-        } else {
-            inputString.forEachIndexed { index, c ->
-                if (index % 2 != 0) {
-                    capitalizedString += c.uppercase()
-                } else {
-                    capitalizedString += c
-                }
+        }
+        return capitalizedString
+    }
+
+    fun capitalizeByOddIndex(inputString: String): String {
+        var capitalizedString = ""
+        inputString.forEachIndexed { index, c ->
+            if (index % 2 != 0) {
+                capitalizedString += c.uppercase()
+            } else {
+                capitalizedString += c
             }
         }
         return capitalizedString
