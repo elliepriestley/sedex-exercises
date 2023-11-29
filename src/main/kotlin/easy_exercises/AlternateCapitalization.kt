@@ -9,31 +9,19 @@ The input will be a lowercase string with no spaces. */
 class AlternateCapitalization {
 
     fun alternateCapitalize(inputString: String): List<String> {
-        val inputList= listOf(inputString, inputString)
-        return listOf(capitalizeByEvenIndex(inputList[0]), capitalizeByOddIndex(inputList[1]))
-    }
-
-    fun capitalizeByEvenIndex(inputString: String): String {
-        var capitalizedString = ""
+        var capitalizedOddString = ""
+        var capitalizedEvenString = ""
         inputString.forEachIndexed { index, c ->
             if (index % 2 == 0) {
-                capitalizedString += c.uppercase()
+                capitalizedEvenString += c.uppercase()
+                capitalizedOddString += c
             } else {
-                capitalizedString += c
+                capitalizedOddString += c.uppercase()
+                capitalizedEvenString += c
+
             }
         }
-        return capitalizedString
+        return listOf(capitalizedEvenString, capitalizedOddString)
     }
 
-    fun capitalizeByOddIndex(inputString: String): String {
-        var capitalizedString = ""
-        inputString.forEachIndexed { index, c ->
-            if (index % 2 != 0) {
-                capitalizedString += c.uppercase()
-            } else {
-                capitalizedString += c
-            }
-        }
-        return capitalizedString
-    }
 }
