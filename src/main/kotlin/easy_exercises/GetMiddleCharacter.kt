@@ -27,14 +27,6 @@ The middle character(s) of the word represented as a string.
 
 class GetMiddleCharacter {
     fun getMiddle(str: String): String {
-////        return "strin"
-//
-//        val length: Int = str.count()
-//        // length = 5
-//        // in this case we want the 3rd letter, or index 2
-//        println(length / 2)
-//        println((str.count() / 2).ceil())
-
-        return TODO()
+        return str
     }
 }

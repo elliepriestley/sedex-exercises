@@ -60,4 +60,14 @@ class AdventOfCode2015DayOneTest {
         assertEquals(expected, actual)
     }
 
+    @Test
+    fun `firstEntersBasement function - outputs are as expected in all test cases`() {
+        // Arrange
+        val underTest = AdventOfCode2015DayOne()
+
+        // Act and Assert
+        assertEquals(1, underTest.firstEntersBasement(")"))
+        assertEquals(5, underTest.firstEntersBasement("()())"))
+        assertEquals(15, underTest.firstEntersBasement("((((((())))))))"))
+    }
 }

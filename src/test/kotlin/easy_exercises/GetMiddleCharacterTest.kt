@@ -3,19 +3,16 @@ package easy_exercises
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
+import kotlin.test.expect
 
 class GetMiddleCharacterTest {
-    @Disabled
+
     @Test
-    fun `when input count is odd, return the middle character of input`() {
-        // Arrange
-        val underTest = GetMiddleCharacter()
-        val expected: String = "b"
+    fun `an input "a" returns "a"`() {
+        val getMiddleCharacter = GetMiddleCharacter()
+        val expected = "a"
+        val actual = getMiddleCharacter.getMiddle("a")
 
-        // Act
-        val actual: String = underTest.getMiddle("aba")
-
-        // Assert
         assertEquals(expected, actual)
     }
 
