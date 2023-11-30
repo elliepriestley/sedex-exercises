@@ -16,5 +16,33 @@ class GetMiddleCharacterTest {
         assertEquals(expected, actual)
     }
 
+    @Test
+    fun `when input length is odd, returns middle character`() {
+        // Arrange
+        val underTest = GetMiddleCharacter()
+        val expected: String = "b"
+
+        // Act
+        val actual: String = underTest.getMiddle("aba")
+
+        // Assert
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `when input length is even, returns the two middle characters`() {
+        // Arrange
+        val underTest = GetMiddleCharacter()
+        val expected: String = "ea"
+
+        // Act
+        val actual: String = underTest.getMiddle("bead")
+
+        // Assert
+        assertEquals(expected, actual)
+    }
+
+
+
 
 }
