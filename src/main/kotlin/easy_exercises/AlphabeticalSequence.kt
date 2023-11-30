@@ -24,9 +24,14 @@ Technical Details
 
 class AlphabeticalSequence {
     fun alphaSeq(inputString: String): String {
-
         val sortedList = inputString.toList().sorted()
-        return sortedList.joinToString("")
+        var resultString = ""
+        sortedList.forEach {
+            val position = it.code - 96
+            resultString += "$it".repeat(position)
+            
+        }
+        return resultString
     }
 
 }
