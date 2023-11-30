@@ -1,5 +1,7 @@
 package easy_exercises
 
+import java.util.*
+
 /*
 In this kata you will be given a random string of letters and tasked with returning them as a string of comma-separated sequences
 sorted alphabetically, with each sequence starting with an uppercase character followed by n-1 lowercase characters, where n is
@@ -24,14 +26,14 @@ Technical Details
 
 class AlphabeticalSequence {
     fun alphaSeq(inputString: String): String {
-        val sortedList = inputString.toList().sorted()
+        val sortedList = inputString.lowercase().toList().sorted()
         var resultString = ""
         sortedList.forEach {
-            val position = it.code - 96
-            resultString += "$it".repeat(position)
+            val position = it.lowercaseChar().code - 96
+            resultString += "$it".repeat(position) + ","
             
         }
-        return resultString
+        return resultString.dropLast(1)
     }
 
 }
