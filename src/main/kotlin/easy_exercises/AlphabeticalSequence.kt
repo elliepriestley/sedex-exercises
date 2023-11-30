@@ -37,3 +37,5 @@ class AlphabeticalSequence {
         return resultString.dropLast(1)
     }
 }
+
+

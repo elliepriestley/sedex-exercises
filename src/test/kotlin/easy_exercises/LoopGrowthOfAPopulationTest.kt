@@ -1,6 +1,7 @@
 package easy_exercises
 
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import java.lang.Exception
 import kotlin.test.assertFailsWith
@@ -78,21 +79,30 @@ class LoopGrowthOfAPopulationTest {
     }
 
     @Test
-    fun `an initialPopulation of 1 with percentage increase of 77 and 0 additionalPeople and targetPopulation of 2 returns 2`() {
-        // 1 year = 1.77->1
-        // 2 years = 3.13
-
-        // make initial pop 2 - larger numbers
+    fun `an initialPopulation of 1500000 with a percentage increase of 2 and a half, 10000 additionalPeople and targetPopulation of 2000000 returns 10`() {
 
         //arrange
         val loopGrowthOfAPopulation = LoopGrowthOfAPopulation()
-        val expected: Int = 2
+        val expected: Int = 10
 
         //act
-        val actual: Int = loopGrowthOfAPopulation.predictYear(1, 77f, 0, 2)
+        val actual: Int = loopGrowthOfAPopulation.predictYear(1500000, 2.5f, 10000, 2000000)
 
         //assert
         assertEquals(expected, actual)
+    }
 
+    @Test
+    fun`an initialPopulation of 1500 with a percentage increase of 5, 100 additionalPeople and targetPopulation of 5000 returns 15`() {
+        // Arrange
+        val underTest = LoopGrowthOfAPopulation()
+        val expected: Int = 15
+
+        // Act
+        val actual: Int = underTest.predictYear(1500, 5.0f, 100, 5000)
+
+        // Assert
+        assertEquals(expected, actual)
     }
 }
+// 1500, 5.0, 100, 5000), 15)
