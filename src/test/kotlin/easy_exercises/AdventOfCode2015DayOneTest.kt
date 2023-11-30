@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 class AdventOfCode2015DayOneTest {
 
     @Test
-    fun `when input is ((( the result is 3`() {
+    fun `whatFloor function - when input is ((( the result is 3`() {
         // Arrange
         val underTest = AdventOfCode2015DayOne()
         val expected: Int = 3
@@ -17,7 +17,7 @@ class AdventOfCode2015DayOneTest {
         assertEquals(expected, actual)
     }
     @Test
-    fun `when input is ))) the result is -3`() {
+    fun `whatFloor function - when input is ))) the result is -3`() {
         // Arrange
         val underTest = AdventOfCode2015DayOne()
         val expected: Int = -3
@@ -30,7 +30,7 @@ class AdventOfCode2015DayOneTest {
     }
 
     @Test
-    fun `output is as expected in test cases`() {
+    fun `whatFloor function - output is as expected in test cases`() {
         // Arrange
         val underTest = AdventOfCode2015DayOne()
 
@@ -45,7 +45,19 @@ class AdventOfCode2015DayOneTest {
         assertEquals(-3, underTest.whatFloor(")))"))
         assertEquals(-3, underTest.whatFloor(")())())"))
 
+    }
 
+    @Test
+    fun `firstEntersBasement function - when input is ) output is 1`() {
+        // Arrange
+        val underTest = AdventOfCode2015DayOne()
+        val expected: Int = 1
+
+        // Act
+        val actual: Int = underTest.firstEntersBasement(")")
+
+        // Assert
+        assertEquals(expected, actual)
     }
 
 }

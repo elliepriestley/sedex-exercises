@@ -1,6 +1,7 @@
 package easy_exercises
 
 /*
+PART ONE
 Santa is trying to deliver presents in a large apartment building, but he can't find the right floor - the directions
 he got are a little confusing. He starts on the ground floor (floor 0) and then follows the instructions one character at a time.
 
@@ -16,29 +17,44 @@ For example:
     ))) and )())()) both result in floor -3.
 
 To what floor do the instructions take Santa?
- */
-class AdventOfCode2015DayOne {
-    // Solution 1
-//    fun whatFloor(inputStr: String): Int {
-//        var count: Int = 0
-//        for (c in inputStr) {
-//            if (c == '(') {
-//                count++
-//            } else {
-//                count--
-//            }
-//        }
-//        return count
-//    }
 
-    // Solution 2
+PART TWO
+Now, given the same instructions, find the position of the first character that causes him to enter the basement (floor -1).
+ The first character in the instructions has position 1, the second character has position 2, and so on.
+
+For example:
+    ) causes him to enter the basement at character position 1.
+    ()()) causes him to enter the basement at character position 5.
+
+What is the position of the character that causes Santa to first enter the basement?
+
+ */
+
+class AdventOfCode2015DayOne {
+    // PART ONE
     fun whatFloor(inputStr: String): Int {
-        var count = 0
+        var floor = 0
         inputStr.forEach {
             if (it == '(') {
-                count++
+                floor++
             } else {
-                count--
+                floor--
+            }
+        }
+        return floor
+    }
+    // PART TWO
+    fun firstEntersBasement(inputStr: String): Int {
+        var floor = 0
+        var count = 0
+        inputStr.forEach {
+            count ++
+            if (floor >= 0) {
+                if (it == '(') {
+                    floor++
+                } else {
+                    floor--
+                }
             }
         }
         return count
