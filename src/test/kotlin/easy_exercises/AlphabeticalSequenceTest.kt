@@ -35,6 +35,7 @@ class AlphabeticalSequenceTest {
         assertEquals(expected, actual)
     }
 
+    @Disabled // test is no longer fitting the criteria - kept for learning
     @Test
     fun `returns input string sorted alphabetically, where each element appears as many times as its respective place in the alphabet, separated by commas`() {
         // Arrange
@@ -46,6 +47,18 @@ class AlphabeticalSequenceTest {
 
         // Assert
         assertEquals(expected, actual)
+    }
 
+    @Test
+    fun `returns input string sorted alphabetically, where each element appears as many times as its respective place in the alphabet, separated by commas, with first instance of each number capitalized`() {
+        // Arrange
+        val underTest = AlphabeticalSequence()
+        val expected: String = "Eeeee,Ggggggg,Llllllllllll,Nnnnnnnnnnnnnn,Nnnnnnnnnnnnnn,Pppppppppppppppp,Qqqqqqqqqqqqqqqqq,Rrrrrrrrrrrrrrrrrr,Uuuuuuuuuuuuuuuuuuuuu,Xxxxxxxxxxxxxxxxxxxxxxxx,Zzzzzzzzzzzzzzzzzzzzzzzzzz"
+
+        // Act
+        val actual: String = underTest.alphaSeq("ZpglnRxqenU")
+
+        // Assert
+        assertEquals(expected, actual)
     }
 }

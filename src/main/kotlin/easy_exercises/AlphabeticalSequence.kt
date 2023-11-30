@@ -30,10 +30,10 @@ class AlphabeticalSequence {
         var resultString = ""
         sortedList.forEach {
             val position = it.lowercaseChar().code - 96
-            resultString += "$it".repeat(position) + ","
-            
+            val letterString = "$it".repeat(position) + ","
+            val capitalizedLetterString = letterString.replaceFirst("$it", "${it.uppercaseChar()}")
+            resultString += capitalizedLetterString
         }
         return resultString.dropLast(1)
     }
-
 }
