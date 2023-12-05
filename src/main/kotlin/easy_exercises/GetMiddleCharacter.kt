@@ -27,14 +27,23 @@ The middle character(s) of the word represented as a string.
 
 class GetMiddleCharacter {
     fun getMiddle(str: String): String {
-        val length: Int = str.length
-        if (length % 2 == 0) {
-            val firstIndex: Int = ((length)/2) -1  // (index = 1)
-            val secondIndex: Int = ((length)/2)  // (index = 2)
-            return str.slice(firstIndex..secondIndex)
-        } else {
-            val middleIndex: Int = ((length + 1)/2) -1  // 1
-            return str[middleIndex].toString()
-        }
+        return str.substring( (str.length -1 ) /2, (str.length / 2 )+ 1)
+
     }
+
+    // before refactoring:
+//    fun getMiddle(str: String): String {
+//        val length: Int = str.length
+//        if (length % 2 == 0) {
+//            val firstIndex: Int = ((length)/2) -1  // (index = 1)
+//            val secondIndex: Int = ((length)/2)  // (index = 2)
+//            return str.slice(firstIndex..secondIndex)
+//        } else {
+//            val middleIndex: Int = ((length + 1)/2) -1  // 1
+//            return str[middleIndex].toString()
+//        }
+//
+//
+//    }
+
 }
