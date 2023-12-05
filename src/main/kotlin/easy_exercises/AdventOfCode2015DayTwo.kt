@@ -46,7 +46,7 @@ class AdventOfCode2015DayTwo {
                     .sorted()
                val smallestPerimeter: Int = present[0] *2 + present[1] * 2
                val cubicVolume: Int = present[0] * present[1] * present[2]
-               ribbonLength = cubicVolume + smallestPerimeter
+               ribbonLength += cubicVolume + smallestPerimeter
           }
           return ribbonLength
      }
