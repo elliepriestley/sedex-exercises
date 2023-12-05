@@ -48,8 +48,8 @@ class AdventOfCode2015DayOne {
         var floor = 0
         var count = 0
         inputStr.forEach {
-            count ++
             if (floor >= 0) {
+                count ++
                 if (it == '(') {
                     floor++
                 } else {
