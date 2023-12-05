@@ -28,9 +28,7 @@ class AdventOfCode2015DayTwo {
           var result = 0
           dimensions.forEach { it ->
                val present = it.split("x")
-                    .map {
-                         it.toInt()
-                    }
+                    .map {it.toInt() }
                val l = present[0]
                val w = present[1]
                val h = present[2]
@@ -40,8 +38,16 @@ class AdventOfCode2015DayTwo {
           return result
      }
 
-     fun howMuchRibbon(dimensions: List<String>): Int {
-          return 0
+     fun ribbonCalculator(dimensions: List<String>): Int {
+          var ribbonLength: Int = 0
+          dimensions.forEach { it ->
+               val present = it.split("x")
+                    .map{it.toInt()}
+                    .sorted()
+               val smallestPerimeter: Int = present[0] *2 + present[1] * 2
+               val cubicVolume: Int = present[0] * present[1] * present[2]
+               ribbonLength = cubicVolume + smallestPerimeter
+          }
+          return ribbonLength
      }
-
 }
