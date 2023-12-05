@@ -25,7 +25,7 @@ For example:
 
 class AdventOfCode2015DayTwo {
      fun howMuchWrappingPaper(dimensions: List<String>): Int {
-          var result = 0
+          var totalSquareFeetWrappingPaper = 0
           dimensions.forEach { it ->
                val present = it.split("x")
                     .map {it.toInt() }
@@ -33,21 +33,37 @@ class AdventOfCode2015DayTwo {
                val w = present[1]
                val h = present[2]
                val surfaceArea = listOf(2*l*w , 2*w*h , 2*h*l)
-               result += surfaceArea.sum() + surfaceArea.min() /2
+               totalSquareFeetWrappingPaper += surfaceArea.sum() + surfaceArea.min() /2
           }
-          return result
+          return totalSquareFeetWrappingPaper
      }
 
      fun ribbonCalculator(dimensions: List<String>): Int {
-          var ribbonLength: Int = 0
+          var totalFeetRibbon: Int = 0
           dimensions.forEach { it ->
                val present = it.split("x")
                     .map{it.toInt()}
                     .sorted()
                val smallestPerimeter: Int = present[0] *2 + present[1] * 2
                val cubicVolume: Int = present[0] * present[1] * present[2]
-               ribbonLength += cubicVolume + smallestPerimeter
+               totalFeetRibbon += cubicVolume + smallestPerimeter
           }
-          return ribbonLength
+          return totalFeetRibbon
+     }
+
+     fun wrappingMaterialsCalculator(dimensions: List<String>): String {
+          var totalSquareFeetWrappingPaper = 0
+          var totalFeetRibbon: Int = 0
+          dimensions.forEach { it ->
+               val present = it.split("x")
+                    .map {it.toInt() }
+               val l = present[0]
+               val w = present[1]
+               val h = present[2]
+               val surfaceArea = listOf(2*l*w , 2*w*h , 2*h*l)
+               totalSquareFeetWrappingPaper += surfaceArea.sum() + surfaceArea.min() /2
+               totalFeetRibbon += (present[0] * present[1] * present[2]) + (present.sorted()[0] *2 + present.sorted()[1] * 2)
+          }
+          return "Total square feet wrapping paper needed: $totalSquareFeetWrappingPaper \nTotal feed ribbon needed: $totalFeetRibbon"
      }
 }
