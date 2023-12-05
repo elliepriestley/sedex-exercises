@@ -1070,7 +1070,19 @@ class AdventOfCode2015DayTwoTest {
 
         // Assert
         assertEquals(expected, actual)
+    }
 
+    @Test
+    fun `ribbonCalculator function - when input is a list of one element with dimensions of 1x1x10 return value is 14`() {
+        // Arrange
+        val underTest = AdventOfCode2015DayTwo()
+        val expected: Int = 14
+
+        // Act
+        val actual: Int = underTest.ribbonCalculator(listOf("1x1x10"))
+
+        // Assert
+        assertEquals(expected, actual)
     }
 }
 
