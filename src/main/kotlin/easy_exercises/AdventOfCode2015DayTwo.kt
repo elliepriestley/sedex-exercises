@@ -26,7 +26,7 @@ For example:
 class AdventOfCode2015DayTwo {
      fun howMuchWrappingPaper(dimensions: List<String>): Int {
           var result = 0
-          dimensions.forEach {
+          dimensions.forEach { it ->
                val present = it.split("x")
                     .map {
                          it.toInt()
@@ -38,6 +38,10 @@ class AdventOfCode2015DayTwo {
                result += surfaceArea.sum() + surfaceArea.min() /2
           }
           return result
-
      }
+
+     fun howMuchRibbon(dimensions: List<String>): Int {
+          return 0
+     }
+
 }
