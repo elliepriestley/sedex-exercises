@@ -35,7 +35,7 @@ class AdventOfCode2015DayTwo {
                val w = present[1]
                val h = present[2]
                val surfaceArea = listOf(2*l*w , 2*w*h , 2*h*l)
-               result = surfaceArea.sum() + surfaceArea.min() /2
+               result += surfaceArea.sum() + surfaceArea.min() /2
           }
           return result
 

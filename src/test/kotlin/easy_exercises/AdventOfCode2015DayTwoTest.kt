@@ -32,4 +32,17 @@ class AdventOfCode2015DayTwoTest {
 
     }
 
+    @Test
+    fun `when input is a list of two elements with dimensions of 2x3x4, and 1x1x10, return value is 101`() {
+        // Arrange
+        val underTest = AdventOfCode2015DayTwo()
+        val expected: Int = 101
+
+        // Act
+        val actual: Int = underTest.howMuchWrappingPaper(listOf("2x3x4", "1x1x10"))
+
+        // Assert
+        assertEquals(expected, actual)
+    }
+
 }
