@@ -31,5 +31,18 @@ class CharacterWithLongestConsecutiveRepetitionTest {
         assertEquals(expected, actual)
     }
 
+    @Test
+    fun `when input is bbbaaabaaaa, returns Pair('a',4)`() {
+        // Arrange
+        val underTest = CharacterWithLongestConsecutiveRepetition()
+        val expected = Pair('a', 4)
+
+        // Act
+        val actual = underTest.returnCharacter("bbbaaabaaaa")
+
+        // Assert
+        assertEquals(expected, actual)
+    }
+
 
 }

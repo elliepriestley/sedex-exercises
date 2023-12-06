@@ -1,17 +1,27 @@
 package easy_exercises
 
 class CharacterWithLongestConsecutiveRepetition {
+    fun returnCharacter(string: String): Pair<Char?, Int> {
+        var mostFrequentConsecutiveChar: Char? = null
+        var mostFrequentConsecutiveCharCount: Int = 0
+        var counter = 0
 
-    fun returnCharacter(string: String): Pair<Char?,Int>{
-        var mostFrequentChar: Char? = null
-        var countofMostFrequentChar: Int = string.filter{it == mostFrequentChar}.length
-        string.forEach {char ->
-            val countOfIt: Int = string.filter{it == char}.length
-            if (countOfIt > countofMostFrequentChar) {
-                mostFrequentChar = char
-                countofMostFrequentChar = countOfIt
+        string.forEachIndexed { index, char ->
+            if (index == 0) {
+                mostFrequentConsecutiveChar = char
+                mostFrequentConsecutiveCharCount += 1
+                counter += 1
+            } else if (char == string[index - 1]) {
+                counter += 1
+            } else {
+                counter = 1
+            }
+            if (counter > mostFrequentConsecutiveCharCount) {
+                mostFrequentConsecutiveCharCount += 1
+                mostFrequentConsecutiveChar = char
             }
         }
-        return Pair(mostFrequentChar, countofMostFrequentChar)
+    return Pair(mostFrequentConsecutiveChar, mostFrequentConsecutiveCharCount)
     }
 }
+
