@@ -13,7 +13,7 @@ class ReplaceVowelsWithExclamationMarks {
 
     fun replace(s: String): String {
         return s.map {
-            if (it in "aeiou") '!' else it }
+            if (it.lowercase() in "aeiou") '!' else it }
             .joinToString("")
     }
 

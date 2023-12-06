@@ -29,4 +29,30 @@ class ReplaceVowelsWithExclamationMarksTest {
         // Assert
         assertEquals(expected, actual)
     }
+
+    @Test
+    fun`when input string is Hi!, return value is H!! `() {
+        // Arrange
+        val underTest = ReplaceVowelsWithExclamationMarks()
+        val expected: String = "H!!"
+
+        // Act
+        val actual: String = underTest.replace("Hi!")
+
+        // Assert
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun`when input string is AEIOU!, return value is !!!!!! `() {
+        // Arrange
+        val underTest = ReplaceVowelsWithExclamationMarks()
+        val expected: String = "!!!!!!"
+
+        // Act
+        val actual: String = underTest.replace("AEIOU!")
+
+        // Assert
+        assertEquals(expected, actual)
+    }
 }
