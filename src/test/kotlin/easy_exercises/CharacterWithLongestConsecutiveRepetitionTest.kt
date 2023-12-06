@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 class CharacterWithLongestConsecutiveRepetitionTest {
 
     @Test
-    fun `When input is empty string, returns null`() {
+    fun `When input is empty string, returns Pair(null,0)`() {
         // Arrange
         val underTest = CharacterWithLongestConsecutiveRepetition()
         val expected = Pair(null, 0)
@@ -16,7 +16,20 @@ class CharacterWithLongestConsecutiveRepetitionTest {
 
         // Assert
         assertEquals(expected, actual)
-
     }
+
+    @Test
+    fun `when input is aaaabb, returns Pair('a', 4)`() {
+        // Arrange
+        val underTest = CharacterWithLongestConsecutiveRepetition()
+        val expected = Pair('a', 4)
+
+        // Act
+        val actual = underTest.returnCharacter("aaaabb")
+
+        // Assert
+        assertEquals(expected, actual)
+    }
+
 
 }
