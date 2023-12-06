@@ -12,7 +12,9 @@ package easy_exercises
 class ReplaceVowelsWithExclamationMarks {
 
     fun replace(s: String): String {
-        return s
+        return s.map {
+            if (it in "aeiou") '!' else it }
+            .joinToString("")
     }
 
 
