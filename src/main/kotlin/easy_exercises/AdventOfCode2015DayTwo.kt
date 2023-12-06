@@ -51,6 +51,7 @@ class AdventOfCode2015DayTwo {
           return totalFeetRibbon
      }
 
+     // If I wanted to combine the functions into one:
      fun wrappingMaterialsCalculator(dimensions: List<String>): String {
           var totalSquareFeetWrappingPaper = 0
           var totalFeetRibbon: Int = 0
