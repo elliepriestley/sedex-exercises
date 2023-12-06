@@ -2,7 +2,7 @@ package easy_exercises
 
 class CharacterWithLongestConsecutiveRepetition {
 
-    fun returnCharacter(string: String): String {
-        return "string"
+    fun returnCharacter(string: String): Pair<Char?,Int>{
+        return Pair(null, 0)
     }
 }
