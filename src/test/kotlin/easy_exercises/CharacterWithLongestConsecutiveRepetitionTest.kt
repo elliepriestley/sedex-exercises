@@ -44,5 +44,18 @@ class CharacterWithLongestConsecutiveRepetitionTest {
         assertEquals(expected, actual)
     }
 
+    @Test
+    fun `returns expected results from kata example tests`() {
+        // Arrange
+        val underTest = CharacterWithLongestConsecutiveRepetition()
+
+        // Act and Assert
+        assertEquals(Pair('u', 3), underTest.returnCharacter("cbdeuuu900"))
+        assertEquals(Pair('b',5), underTest.returnCharacter("abbbbb"))
+        assertEquals(Pair('a',2), underTest.returnCharacter("aabb"))
+        assertEquals(Pair(null,0), underTest.returnCharacter(""))
+        assertEquals(Pair('b',1), underTest.returnCharacter("ba"))
+    }
+
 
 }
