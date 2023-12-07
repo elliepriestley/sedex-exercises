@@ -21,7 +21,7 @@ class CharacterWithLongestConsecutiveRepetition {
         inputString.forEachIndexed { index, currentChar ->
             // if it is the same as the one before
             // input = abba
-            if (index  > 0 && currentChar == inputString[index - 1]) {
+            if (index > 0 && currentChar == inputString[index - 1]) {
                 currentCount += 1
             } else {
                 currentCount = 1
