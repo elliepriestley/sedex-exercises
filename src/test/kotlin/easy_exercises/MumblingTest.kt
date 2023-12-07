@@ -17,5 +17,18 @@ class MumblingTest {
         assertEquals(expected, actual)
     }
 
+    @Test
+    fun `when input is ab, output is ABB`() {
+        // Arrange
+        val underTest = Mumbling()
+        val expected: String = "ABB"
+
+        // Act
+        val actual: String = underTest.accum("ab")
+
+        // Assert
+        assertEquals(expected, actual)
+    }
+
 
 }
