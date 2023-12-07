@@ -15,17 +15,14 @@ The parameter of accum is a string which includes only letters from a..z and A..
 
 class Mumbling {
     fun accum(inputString: String): String {
-        var resultString = ""
-        inputString.forEachIndexed { index, char ->
-            val charString = char.toString()
-                .lowercase()
-                .repeat(index +1)
-                .replaceFirstChar { it.titlecase() }
-            resultString += "${charString}-"
-        }
-        return resultString.dropLast(1)
+        return inputString
+            .mapIndexed { index, char ->
+                char.toString()
+                    .lowercase()
+                    .repeat(index + 1)
+                    .replaceFirstChar { it.titlecase() }
+            }.joinToString("-")
     }
-
 }
 
 // input is ab, output is aBB
