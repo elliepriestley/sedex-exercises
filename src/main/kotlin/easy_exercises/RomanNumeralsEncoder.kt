@@ -28,8 +28,8 @@ class RomanNumeralsEncoder {
 
     fun encode(num: Int): String {
         var romanNumeralResult = ""
-        if (num == 1000) {
-            romanNumeralResult += "M"
+        if (num % 1000 == 0) {
+            romanNumeralResult += "M".repeat(num / 1000)
         }
         return romanNumeralResult
     }

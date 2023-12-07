@@ -18,6 +18,19 @@ class RomanNumeralsEncoderTest {
         assertEquals(expected, actual)
     }
 
+    @Test
+    fun `when input is 2000, output is MM`() {
+        // Arrange
+        val underTest = RomanNumeralsEncoder()
+        val expected: String = "MM"
+
+        // Act
+        val actual: String = underTest.encode(2000)
+
+        // Assert
+        assertEquals(expected, actual)
+    }
+
 
 
 }
