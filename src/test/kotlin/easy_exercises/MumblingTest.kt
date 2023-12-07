@@ -32,6 +32,7 @@ class MumblingTest {
         assertEquals(expected, actual)
     }
 
+    @Disabled // disabled test as no longer fits end requirements
     @Test
      fun `when input is abc, output is ABbCcc`() {
         // Arrange
@@ -56,6 +57,19 @@ class MumblingTest {
 
         // Assert
         assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `results are as expected given codewars sample tests`() {
+        // Arrange
+        val underTest = Mumbling()
+
+        // Act and Assert
+        assertEquals("A-Bb-Ccc-Dddd", underTest.accum("abcd"))
+        assertEquals("R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy", underTest.accum("RqaEzty"))
+        assertEquals("C-Ww-Aaa-Tttt", underTest.accum("cwAt"))
+        assertEquals("Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu", underTest.accum("ZpglnRxqenU"))
+        assertEquals("N-Yy-Fff-Ffff-Sssss-Gggggg-Eeeeeee-Yyyyyyyy-Yyyyyyyyy-Llllllllll-Bbbbbbbbbbb", underTest.accum("NyffsGeyylB"))
     }
 
 

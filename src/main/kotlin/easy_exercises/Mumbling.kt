@@ -14,16 +14,19 @@ Examples:
 The parameter of accum is a string which includes only letters from a..z and A..Z.*/
 
 class Mumbling {
+    // RqaEzty
     fun accum(inputString: String): String {
         var resultString = ""
         inputString.forEachIndexed { index, char ->
             val charString = char.toString()
+                .lowercase()
                 .repeat(index +1)
                 .replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
             resultString += "${charString}-"
         }
         return resultString.dropLast(1)
     }
+
 }
 
 // input is ab, output is aBB
