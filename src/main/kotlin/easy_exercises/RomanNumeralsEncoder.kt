@@ -26,11 +26,33 @@ package easy_exercises
 
 class RomanNumeralsEncoder {
 
-    fun encode(num: Int): String {
-        var romanNumeralResult = ""
-        if (num % 1000 == 0) {
-            romanNumeralResult += "M".repeat(num / 1000)
+    fun breakUpNum(num: Int): ArrayList<String> {
+        val resultList = ArrayList<String>()
+        num.toString().mapIndexed { index, c ->
+            if (c != '0') {
+                val numofZeroes = num.toString().length - (index + 1)
+                val numString: String = "$c${"0".repeat(numofZeroes)}"
+                resultList.add(numString)
+            }
         }
-        return romanNumeralResult
+        return resultList
     }
+    fun encode(num: Int): String {
+        val digitList = breakUpNum(num)
+        var romanNumeralsString: String = ""
+        digitList.forEach { s ->
+            if (s.toInt() % 1000 == 0) {
+                romanNumeralsString += "M".repeat(s.toInt() / 1000)
+            } else if (s.toInt() % 500 == 0) {
+                romanNumeralsString += "D".repeat(s.toInt() / 500)
+            }
+        }
+        return romanNumeralsString
+    }
+
+
+// think I need a loop -
+// First i need to break it up: 2480 - should be broken into 2000, 400, 80.
+// Then we loop for each of the integers/ it checks num to see if it's divisible by M, D, C etc. Adds the relevant roman character to the result string.
+// THen goes through the loop again with num - M
 }

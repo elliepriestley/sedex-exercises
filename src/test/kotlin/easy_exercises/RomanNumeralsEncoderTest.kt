@@ -31,6 +31,20 @@ class RomanNumeralsEncoderTest {
         assertEquals(expected, actual)
     }
 
+    @Test
+    fun `when input is 1500, output is MD`() {
+        // Arrange
+        val underTest = RomanNumeralsEncoder()
+        val expected: String = "MD"
+
+        // Act
+        val actual: String = underTest.encode(1500)
+
+        // Assert
+        assertEquals(expected, actual)
+
+    }
+
 
 
 }
