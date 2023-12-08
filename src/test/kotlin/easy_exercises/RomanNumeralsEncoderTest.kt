@@ -1,6 +1,7 @@
 package easy_exercises
 
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 class RomanNumeralsEncoderTest {
@@ -57,6 +58,32 @@ class RomanNumeralsEncoderTest {
         // Assert
         assertEquals(expected, actual)
 
+    }
+
+    @Test
+    fun `when input is 2008, output is MMVIII`() {
+        // Arrange
+        val underTest = RomanNumeralsEncoder()
+        val expected: String = "MMVIII"
+
+        // Act
+        val actual: String = underTest.encode(2008)
+
+        // Assert
+        assertEquals(expected, actual)
+    }
+
+    @Disabled // come to this test later - TDD for edge cases first
+    @Test
+    fun `results are as expected for CodeWars kata Example tests`() {
+        // Arrange
+        val underTest = RomanNumeralsEncoder()
+
+        // Act and Assert
+        assertEquals("", underTest.encode(0))
+        assertEquals("I", underTest.encode(1))
+        assertEquals("XXI", underTest.encode(21))
+        assertEquals("MDCLXVI", underTest.encode(1666))
     }
 
 

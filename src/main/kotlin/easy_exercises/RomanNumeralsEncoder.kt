@@ -25,7 +25,6 @@ package easy_exercises
 * */
 
 class RomanNumeralsEncoder {
-
     fun breakUpNum(num: Int): ArrayList<String> {
         val resultList = ArrayList<String>()
         num.toString().mapIndexed { index, c ->
@@ -51,8 +50,8 @@ class RomanNumeralsEncoder {
                 romanNumeralsString += "L".repeat(s.toInt() / 50)
             } else if (s.toInt() % 10 == 0) {
                 romanNumeralsString += "X".repeat(s.toInt() / 10)
-            } else if (s.toInt() % 5 == 0) {
-                romanNumeralsString += "V".repeat(s.toInt() / 5)
+            } else if (s.toInt() > 5) {
+                romanNumeralsString += "V${"I".repeat(s.toInt()-5)}"
             } else {
                 romanNumeralsString += "I".repeat(s.toInt())
             }
@@ -60,9 +59,18 @@ class RomanNumeralsEncoder {
         return romanNumeralsString
     }
 
+//    input:  2008
+//    2000
+//    8
+//    if 8 > 5
+//    return 5 + I.repeat(8-5)
+//    Expected :MMVIII
+//    Actual   :MMIIIIIIII
 
-// think I need a loop -
-// First i need to break it up: 2480 - should be broken into 2000, 400, 80.
-// Then we loop for each of the integers/ it checks num to see if it's divisible by M, D, C etc. Adds the relevant roman character to the result string.
-// THen goes through the loop again with num - M
+    // Substraction - if 6 > 100
+
+    // Take a look at Regex
+    // Go through the kotlin tool - cover them over the next 2 weeks
+
+
 }
