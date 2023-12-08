@@ -45,6 +45,16 @@ class RomanNumeralsEncoder {
                 romanNumeralsString += "M".repeat(s.toInt() / 1000)
             } else if (s.toInt() % 500 == 0) {
                 romanNumeralsString += "D".repeat(s.toInt() / 500)
+            } else if (s.toInt() % 100 == 0) {
+                romanNumeralsString += "C".repeat(s.toInt() / 100)
+            } else if (s.toInt() % 50 == 0) {
+                romanNumeralsString += "L".repeat(s.toInt() / 50)
+            } else if (s.toInt() % 10 == 0) {
+                romanNumeralsString += "X".repeat(s.toInt() / 10)
+            } else if (s.toInt() % 5 == 0) {
+                romanNumeralsString += "V".repeat(s.toInt() / 5)
+            } else {
+                romanNumeralsString += "I".repeat(s.toInt())
             }
         }
         return romanNumeralsString
