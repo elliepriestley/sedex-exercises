@@ -73,7 +73,6 @@ class RomanNumeralsEncoderTest {
         assertEquals(expected, actual)
     }
 
-    @Disabled // come to this test later - TDD for edge cases first
     @Test
     fun `results are as expected for CodeWars kata Example tests`() {
         // Arrange
@@ -84,7 +83,11 @@ class RomanNumeralsEncoderTest {
         assertEquals("I", underTest.encode(1))
         assertEquals("XXI", underTest.encode(21))
         assertEquals("MDCLXVI", underTest.encode(1666))
+        assertEquals("MCMXC", underTest.encode(1990))
+        assertEquals("IV", underTest.encode(4) )
     }
+
+
 
 
 
