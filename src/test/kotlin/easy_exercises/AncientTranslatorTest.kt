@@ -26,21 +26,71 @@ class AncientTranslatorTest {
         val expected: String = "V"
 
         // Act
-        val actual = underTest.findNearestVitalNum("4")
+        val actual = underTest.findNearestVitalNumInRomanNumerals("4")
 
         // Assert
         assertEquals(expected, actual)
     }
-//    @Test
-//    fun `encode function - when input is 4, return is IV`() {
-//        // Arrange
-//        val underTest = AncientTranslator()
-//        val expected: String = "IV"
-//
-//        // Act
-//        val actual = underTest.encode(listOf("4"))
-//
-//        // Assert
-//        assertEquals(expected, actual)
-//    }
+    @Test
+    fun `encode function - when input is 4, return is IV`() {
+        // Arrange
+        val underTest = AncientTranslator()
+        val expected: String = "IV"
+
+        // Act
+        val actual = underTest.encode(listOf("4"))
+
+        // Assert
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `translate function - when input is 400, return is CD`() {
+        // Arrange
+        val underTest = AncientTranslator()
+        val expected: String = "CD"
+
+        // Act
+        val actual = underTest.translate(400)
+
+        // Assert
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `translate function - when input is 2008, return is MMVIII`() {
+        // Arrange
+        val underTest = AncientTranslator()
+        val expected: String = "MMVIII"
+
+        // Act
+        val actual = underTest.translate(2008)
+
+        // Assert
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `translate function - all test cases provided, including edge cases, return as expected`() {
+        val underTest = AncientTranslator()
+
+        assertEquals("MDCLXVI", underTest.translate(1666))
+        assertEquals("XIV", underTest.translate(14))
+        assertEquals("XLIV", underTest.translate(44))
+        assertEquals("CDXLIV", underTest.translate(444))
+        assertEquals("XCIX", underTest.translate(99))
+        assertEquals("CMXCIX", underTest.translate(999))
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }
