@@ -19,4 +19,19 @@ package easy_exercises
  */
 
 class ParenthesisDecoder {
+
+    // Rules:
+    // The second character in a parenthesis pair must be second if they are one after another.
+    // () is correct, )( is incorrect
+    // {} is correct }{ is incorrect
+    // [] is correct ][ is incorrect
+    fun areParenthesesBalanced(parenthesisString: String): Boolean {
+        return when (parenthesisString) {
+            "()" -> true
+            "{}" -> true
+            "[]" -> true
+            else -> false
+        }
+    }
+
 }
