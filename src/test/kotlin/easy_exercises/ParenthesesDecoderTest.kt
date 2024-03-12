@@ -57,6 +57,20 @@ class ParenthesesDecoderTest {
         assertEquals(false, decoder.areParenthesesBalanced("}}))))}}"))
     }
 
+    @Test
+    fun `Further edge cases return expected result`() {
+        val decoder = ParenthesesDecoder()
+        assertEquals(false, decoder.areParenthesesBalanced(")("))
+        assertEquals(false, decoder.areParenthesesBalanced("()()("))
+        assertEquals(false, decoder.areParenthesesBalanced("((())"))
+        assertEquals(false, decoder.areParenthesesBalanced(")()"))
+        assertEquals(false, decoder.areParenthesesBalanced(")"))
+        assertEquals(true, decoder.areParenthesesBalanced("()"))
+        assertEquals(true, decoder.areParenthesesBalanced("(())((()())())"))
+        assertEquals(false, decoder.areParenthesesBalanced(")(()))"))
+
+    }
+
 }
 
 

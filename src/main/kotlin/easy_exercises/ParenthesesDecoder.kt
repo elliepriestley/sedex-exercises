@@ -19,7 +19,6 @@ package easy_exercises
  */
 
 class ParenthesesDecoder {
-    private val parenthesesMaps = mapOf('[' to ']', '(' to ')', '{' to '}')
     // Rules:
     // 1. The second character in a parenthesis pair must be second if they are one after another. DONE
     // () is correct, )( is incorrect
@@ -28,16 +27,18 @@ class ParenthesesDecoder {
 
     // 2. There must be complete pairs in all parentheses. DONE
 
-    // 3. Algorithm: extract the string from ( to ). If the substring.size is an odd number, it is incorrect. DONE
+    // 3. Substrings must be balanced extract the string from ( to ). If the substring.size is an odd number, it is incorrect. DONE
     // Otherwise, calculate the middle of the string. Check to see if every character
     // between ( and ) are opposite pairs.
+
+    // 4. Substrings must not be just made up of closing parentheses, e.g. "}]))"
     fun areParenthesesBalanced(parenthesesString: String): Boolean {
         val parenthesesAreInPairs = areParenthesesPaired(parenthesesString)
         val inputStringIsTwoCharactersAndBalanced = ifStringIsTwoCharacter(parenthesesString)
         val substringList = returnSubstrings(parenthesesString)
-        println("substrings = $substringList")
         val allSubstringSizesAreEven = substringList.all { it.length % 2 == 0 }
         val allSubStringsAreBalanced = areAllSubStringsBalanced(substringList)
+        val isInputStringBalanced = isInputStringBalanced(parenthesesString)
         val inputStringContainsOpeningChars = doesInputStringContainAnyOpeningParameters(parenthesesString)
 
         val isStringTwoCharacters = parenthesesString.length == 2
@@ -45,15 +46,25 @@ class ParenthesesDecoder {
         return if (isStringTwoCharacters) {
              parenthesesAreInPairs && inputStringIsTwoCharactersAndBalanced
         } else {
-            (parenthesesAreInPairs && allSubstringSizesAreEven && allSubStringsAreBalanced && inputStringContainsOpeningChars)
+            (parenthesesAreInPairs && allSubstringSizesAreEven && allSubStringsAreBalanced && inputStringContainsOpeningChars && isInputStringBalanced)
         }
 
+    }
+
+    private fun isInputStringBalanced(inputString: String): Boolean {
+        var balance = 0
+        inputString.forEach { char ->
+            when (char) {
+                '{', '[', '(' -> balance++
+                '}', ']', ')' -> balance--
+            }
+        }
+        return balance == 0
     }
 
     private fun doesInputStringContainAnyOpeningParameters(parenthesesString: String): Boolean {
         val openingCharacters = "({["
         val count = parenthesesString.count{it in openingCharacters}
-
         return count > 0
     }
 
@@ -75,8 +86,6 @@ class ParenthesesDecoder {
         return !result.contains(false)
     }
 
-
-
     private fun ifStringIsTwoCharacter(parenthesesString: String): Boolean {
         return when (parenthesesString) {
             "()" -> true
@@ -85,7 +94,6 @@ class ParenthesesDecoder {
             else -> false
         }
     }
-
 
     private fun areParenthesesPaired(parenthesesString: String): Boolean {
         var brackets = 0
@@ -105,7 +113,7 @@ class ParenthesesDecoder {
         return brackets % 2 == 0 && braces % 2 == 0 && parenthesis % 2 == 0
     }
 
-    fun returnSubstrings(parenthesesString: String): List<String> {
+    private fun returnSubstrings(parenthesesString: String): List<String> {
         val parenthesesPairs = mapOf('(' to ')', '{' to '}', '[' to ']')
         val parenthesesSubstrings = mutableListOf<String>()
         var startIndex = -1
