@@ -31,13 +31,13 @@ class ParenthesisDecoderTest {
         assertEquals(false, decoder.areParenthesesBalanced(")([]]"))
 
     }
-//    @Test
-//    fun `When the input contains a substring, and the length of that substring is an odd number, returns false`() {
-//        val decoder = ParenthesisDecoder()
-//        assertEquals(false, decoder.areParenthesesBalanced("({)}"))
-//        assertEquals(false, decoder.areParenthesesBalanced("[(]){}[]"))
-//        assertEquals(false, decoder.areParenthesesBalanced("{}([]){[}]"))
-//    }
+    @Test
+    fun `When the input contains a substring, and the length of that substring is an odd number, returns false`() {
+        val decoder = ParenthesisDecoder()
+        assertEquals(false, decoder.areParenthesesBalanced("({)}"))
+        assertEquals(false, decoder.areParenthesesBalanced("[(]){}[]"))
+        assertEquals(false, decoder.areParenthesesBalanced("{}([]){[}]"))
+    }
 
 }
 
