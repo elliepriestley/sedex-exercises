@@ -17,13 +17,13 @@ class StackPracticeTest {
     fun `Push always adds the block to the top of the stack`() {
         val stack = Stack()
         stack.push(1)
-        assertTrue(stack.stackArray.elementAt(stack.stackArray.size -1) == 1)
+        assertTrue(stack.peek() == 1)
         stack.push(2)
-        assertTrue(stack.stackArray.elementAt(stack.stackArray.size -1) == 2)
+        assertTrue(stack.peek() == 2)
         stack.push(3)
         stack.push(4)
         stack.push(5)
-        assertTrue(stack.stackArray.elementAt(stack.stackArray.size -1) == 5)
+        assertTrue(stack.peek() == 5)
     }
 
     @Test
@@ -59,5 +59,20 @@ class StackPracticeTest {
         assertEquals(null, stack.peek())
     }
 
+    @Test
+    fun `Pop returns the block at the top of the stack`() {
+        val stack = Stack()
+        stack.push("alfa")
+        assertEquals("alfa", stack.pop())
+        stack.push("bravo")
+        stack.push("charlie")
+        stack.push("delta")
+        stack.push("echo")
+        assertEquals("echo", stack.pop())
+        assertEquals("delta", stack.pop())
+        assertEquals("charlie", stack.pop())
+        assertEquals("bravo", stack.pop())
+        assertEquals(null, stack.pop())
+    }
 
 }

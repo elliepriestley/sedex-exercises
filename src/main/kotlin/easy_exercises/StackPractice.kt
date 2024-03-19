@@ -11,22 +11,32 @@ package easy_exercises
 * */
 
 class Stack {
-    val stackArray = mutableListOf<Any>()
+    private val stackList = mutableListOf<Any>()
 
     fun peek(): Any? {
-        return if (stackArray.isNotEmpty()) {
-            stackArray.elementAt(stackArray.size -1)
+        return if (stackList.isNotEmpty()) {
+            stackList.elementAt(stackList.size -1)
         } else {
             null
         }
     }
 
     fun push(block: Any) {
-        stackArray.add(block)
+        stackList.add(block)
     }
 
-    fun pop() {
-        stackArray.removeAt(stackArray.size -1)
+    fun pop(): Any? {
+        return if (stackList.isNotEmpty()) {
+            val topBlock = stackList.elementAt(stackList.size -1)
+            stackList.removeAt(stackList.size -1)
+            topBlock
+        } else {
+            null
+        }
+
+
+
+
     }
 
 
