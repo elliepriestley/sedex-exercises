@@ -14,11 +14,7 @@ class Stack {
     private val stackList = mutableListOf<Any>()
 
     fun peek(): Any? {
-        return if (stackList.isNotEmpty()) {
-            stackList.elementAt(stackList.size -1)
-        } else {
-            null
-        }
+        return stackList.lastOrNull()
     }
 
     fun push(block: Any) {
@@ -26,18 +22,7 @@ class Stack {
     }
 
     fun pop(): Any? {
-        return if (stackList.isNotEmpty()) {
-            val topBlock = stackList.elementAt(stackList.size -1)
-            stackList.removeAt(stackList.size -1)
-            topBlock
-        } else {
-            null
-        }
-
-
-
-
+        return stackList.removeLastOrNull()
     }
-
 
 }
