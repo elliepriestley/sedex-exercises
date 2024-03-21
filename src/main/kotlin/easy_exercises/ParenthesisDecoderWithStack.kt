@@ -28,21 +28,26 @@ class ParenthesisDecoderWithStack {
     // if the stack is empty, that () is resolved and char can be popped
     // check if stack is empty at end of iteration
 
-
     fun isStringBalanced(inputString: String): Boolean {
         val holdingStack: Stack<Char> = Stack()
+        val parenthesesPairs: Map<Char, Char> = mapOf('(' to ')', '{' to '}', '[' to ']')
 
         inputString.forEach { char ->
             when (char) {
-                '(' -> holdingStack.push(char)
-                ')' -> {
+                in parenthesesPairs.keys -> holdingStack.push(char)
+                in parenthesesPairs.values -> {
                     if (holdingStack.isEmpty()) {
                         return false
                     }
-                    holdingStack.pop()
+                    val matchingOpeningParenthesis = parenthesesPairs.entries.firstOrNull { it.value == char }?.key
+                    if (holdingStack.peek() == matchingOpeningParenthesis) {
+                        holdingStack.pop()
+                    } else {
+                        return false
+                    }
+                }
             }
         }
+        return holdingStack.isEmpty()
     }
-     return holdingStack.isEmpty()
-}
 }
